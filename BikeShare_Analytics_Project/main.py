@@ -27,7 +27,7 @@ def get_filters():
     month = ""
     while(True):
         print("Type name of Month to Filter for (all, january, february, march, ... , june)")
-        month = input()
+        month = input().lower()
         if(month in ['january', 'february', 'march', 'april', 'may', 'june','all']):
                      break
 
@@ -35,7 +35,7 @@ def get_filters():
     day = ""
     while(True):
         print("Type Name of Week day to filter for (all, sunday, monday, tuesday, wednesday, thursday, friday, saturday)")
-        day = input()
+        day = input().lower()
         if(day in ['all', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']):
               break
               
@@ -181,12 +181,12 @@ def user_stats(df):
     print('-'*40)
 
 def show_data(df):
-    view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n')
+    view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n').lower()
     start_loc = 0
     while(view_data.lower() == 'yes'):
         print(df.iloc[start_loc:start_loc+5, :-3])
         start_loc += 5
-        view_data = input('\nWould you like to view 5 more rows of individual trip data? Enter yes or no\n')
+        view_data = input('\nWould you like to view 5 more rows of individual trip data? Enter yes or no\n').lower()
 
 
 def main():
@@ -200,7 +200,7 @@ def main():
         user_stats(df)
         show_data(df)
 
-        restart = input('\nWould you like to restart? Enter yes or no.\n')
+        restart = input('\nWould you like to restart? Enter yes or no.\n').lower()
         if restart.lower() != 'yes':
             break
 
